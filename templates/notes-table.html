@@ -1,0 +1,31 @@
+{% extends base.html %}
+{% block content %}
+<div class="card-body">
+    <h4>Notes table</h4>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+        <tr>
+            <td>{{ note.title }}</td>
+            <td>{{ note.content }}</td>
+            <td>{{ note.creation_date }}</td>
+            <td>{{ note.author }}</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="/note-update/{{ note.id }}">Update</a>
+                <a type="button" class="btn btn-danger" href="/note-delete/{{ note.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'note-create' %}">New</a>
+</div>
+{% endblock %}
