@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 
-from forms import NoteForm
-from models import Note
+from .forms import NoteForm
+from .models import Note
 
+
+# Create your views here.
 
 def notesTable(request):
     notes = Note.objects.all()
@@ -16,11 +18,11 @@ def notesCreate(request):
             try:
                 form.save()
                 model = form.instance
-                return redirect('/notes-table')
+                return redirect('notes-table')
             except:
                 pass
-        else:
-            form = NoteForm()
+    else:
+        form = NoteForm()
     return render(request, 'notes-create.html', {'form': form})
 
 

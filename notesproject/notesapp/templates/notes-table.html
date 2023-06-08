@@ -1,4 +1,4 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block content %}
 <div class="card-body">
     <h4>Notes table</h4>
@@ -19,13 +19,13 @@
             <td>{{ note.creation_date }}</td>
             <td>{{ note.author }}</td>
             <td>
-                <a type="button" class="btn btn-warning" href="/note-update/{{ note.id }}">Update</a>
-                <a type="button" class="btn btn-danger" href="/note-delete/{{ note.id }}">Delete</a>
+                <a type="button" class="btn btn-warning" href="/notes-update/{{ note.id }}">Update</a>
+                <a type="button" class="btn btn-danger" href="/notes-delete/{{ note.id }}">Delete</a>
             </td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a type="button" class="btn btn-success" href="{%url 'note-create' %}">New</a>
+    <a type="button" class="btn btn-success" href="{%url 'notes-create' %}">New</a>
 </div>
 {% endblock %}

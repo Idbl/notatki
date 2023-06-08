@@ -1,11 +1,11 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block content %}
 <div class="card-body">
     <h4>Update Note</h4>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_pl }}
-        <a type="button" class="btn btn-danger" href="{%url 'note-list' %}">Back</a>
+        {{ form.as_p }}
+        <a type="button" class="btn btn-danger" href="{%url 'notes-table' %}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>
